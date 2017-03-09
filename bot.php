@@ -16,10 +16,13 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
+
+            $textexplode = explode(':',$text);
+            $messagereply = textreplay($textexplode);
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => $messagereply
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -44,4 +47,14 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK";
+
+
+function textreply($textexplode){
+        if($textexplode[0] == 'อยากรู้'){
+
+            return date('Y-m-d');
+        }else{
+            return 'อะไรละ';
+        }
+
+}
