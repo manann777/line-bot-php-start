@@ -1,7 +1,15 @@
 <?php
 function textreply($text){
 
-    return $text.'textreply';
+    $textexplode = explode(':',$text);
+    if($textexplode[0]){
+        return $textexplode[1];
+
+    }else{
+        return $text.'textreply';
+     }
+
+    
 }
 
 
