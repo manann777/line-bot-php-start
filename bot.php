@@ -1,11 +1,8 @@
 <?php
 function textreply($textexplode){
-        if($textexplode[0] == 'อยากรู้'){
-
-            return date('Y-m-d');
-        }else{
-            return 'อะไรละ';
-        }
+        
+            return $textexplode[0];
+      
 
 }
 
