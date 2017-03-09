@@ -1,9 +1,7 @@
 <?php
 function textreply($textexplode){
-        
-            return $textexplode[0];
-      
 
+    return $textexplode[0];
 }
 
 
@@ -26,7 +24,7 @@ if (!is_null($events['events'])) {
 
 
             $textexplode = explode(':',$text);
-            $messagereply = textreplay($textexplode);
+            $messagereply = textreply($textexplode);
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
