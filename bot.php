@@ -2,8 +2,8 @@
 function textreply($text){
 
     $textexplode = explode(':',$text);
-    if($textexplode[0]){
-        return $textexplode[1];
+    if($textexplode[0] == 'เวลา'){
+        return date('Y-m-d H:i:s');
 
     }else{
         return $text.'textreply';
