@@ -1,4 +1,15 @@
 <?php
+function textreply($textexplode){
+        if($textexplode[0] == 'อยากรู้'){
+
+            return date('Y-m-d');
+        }else{
+            return 'อะไรละ';
+        }
+
+}
+
+
 $access_token = 'lQ1tyURqNWThAgW7FCgu2+guaTBDWJYCApuK6j3r0nyQH3d3teyfj6J/sxRPne3MVUknjIZe6yYCP13BmL04WJrNH3JKdIw0T8GnDDhFSEG+jCw51EowqrNkqjx/o9Qe22Bs2nHhdxFsYQEzzU9jfAdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -49,12 +60,3 @@ if (!is_null($events['events'])) {
 }
 
 
-function textreply($textexplode){
-        if($textexplode[0] == 'อยากรู้'){
-
-            return date('Y-m-d');
-        }else{
-            return 'อะไรละ';
-        }
-
-}
