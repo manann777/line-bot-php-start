@@ -5,6 +5,20 @@ function textreply($text){
     if($textexplode[0] == 'เวลา'){
         return date('Y-m-d H:i:s');
 
+    }elseif ($textexplode[0] == 'gad') {
+            $textreply ='';
+            $ch1 = curl_init();
+            curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch1, CURLOPT_URL, 'https://igad.kku.ac.th/entrap/web/index.php?r=linebot/callback');
+            $result1 = curl_exec($ch1);
+            curl_close($ch1);
+            
+            $obj = json_decode($result1, true);
+            foreach ($obj as $key => $value) {
+                $textreply = $val['data'];
+            }
+            return $textreply;
     }else{
         return $text.'textreply';
      }
