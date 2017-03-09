@@ -14,11 +14,11 @@ function textreply($text){
             $result1 = curl_exec($ch1);
             curl_close($ch1);
             
-            /*$obj = json_decode($result1, true);
+            $obj = json_decode($result1, true);
             foreach ($obj as $key => $value) {
-                $textreply = $val['data'];
-            }*/
-            return $result1;
+                $textreply = $textreply." ".$key."->".$value;
+            }
+            return $textreply;
     }else{
         return $text.'textreply';
      }
