@@ -16,7 +16,7 @@ function textreply($text){
             
             $obj = json_decode($result1, true);
             foreach ($obj as $key => $value) {
-                $textreply = $textreply." ".$key."->".$value;
+                $textreply = $textreply."\n".$key."->".$value;
             }
             return $textreply;
     }else{
