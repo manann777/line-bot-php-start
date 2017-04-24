@@ -20,7 +20,7 @@ function textreply($text){
             }
             return $textreply;
     }else{
-        return $text.'\u000A textreply';
+        return $text.' \r\n \u000A textreply';
      }
 
     
