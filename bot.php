@@ -6,7 +6,7 @@ function textreply($text){
         return date('Y-m-d H:i:s');
 
     }elseif ($textexplode[0] == 'gad') {
-            $textreply ='';
+            $textreply ='ทดสอบ \n (hee) 0x1000B2 :';
             $ch1 = curl_init();
             curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
