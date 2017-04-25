@@ -74,8 +74,8 @@ if (!is_null($events['events'])) {
 			];
 			
 			
-			$post = json_encode($data,$access_token);
-			echo  sender($post);
+			$post = json_encode($data);
+			echo  sender($post,$access_token);
 		}
 	}
 }
