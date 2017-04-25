@@ -27,7 +27,7 @@ function textreply($text){
 }
 
 
-function ssender($post){
+function sender($post){
 	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
 			$ch = curl_init($url);
