@@ -27,6 +27,21 @@ function textreply($text){
 }
 
 
+function ssender($post){
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$result = curl_exec($ch);
+			curl_close($ch);
+
+			return $result . "\r\n";
+}
+
 $access_token = 'lQ1tyURqNWThAgW7FCgu2+guaTBDWJYCApuK6j3r0nyQH3d3teyfj6J/sxRPne3MVUknjIZe6yYCP13BmL04WJrNH3JKdIw0T8GnDDhFSEG+jCw51EowqrNkqjx/o9Qe22Bs2nHhdxFsYQEzzU9jfAdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -43,10 +58,8 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
-
-           // $textexplode = explode(':',$text);
-            $messagereply = textreply($text);
+			// $textexplode = explode(':',$text);
+			$messagereply = textreply($text);
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
@@ -59,19 +72,10 @@ if (!is_null($events['events'])) {
 				'replyToken' => $replyToken,
 				'messages' => [$messages],
 			];
+			
+			
 			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-
-			echo $result . "\r\n";
+			echo  sender($post);
 		}
 	}
 }
