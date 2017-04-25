@@ -6,7 +6,7 @@ function textreply($text){
         return date('Y-m-d H:i:s');
 
     }elseif ($textexplode[0] == 'gad') {
-            $textreply ='ทดสอบ'."\r\n"."gad";
+            $textreply ="";
             $ch1 = curl_init();
             curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
@@ -20,7 +20,7 @@ function textreply($text){
             }
             return $textreply;
     }else{
-        return $text."\r"."reply"."\n"."test";
+        return $text."\r\n";
      }
 
     
