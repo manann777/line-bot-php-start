@@ -10,7 +10,7 @@ function textreply($text){
             $ch1 = curl_init();
             curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch1, CURLOPT_URL, 'https://igad.kku.ac.th/entrap/web/index.php?r=linebot/callback');
+            curl_setopt($ch1, CURLOPT_URL, 'https://igad.kku.ac.th/entrap/web/index.php?r=linebot/callback&humanmsg='.$textexplode[0]);
             $result1 = curl_exec($ch1);
             curl_close($ch1);
             
