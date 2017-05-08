@@ -12,7 +12,7 @@ function textreply($text){
             
             $obj = json_decode($result1, true);
             foreach ($obj as $key => $value) {
-                $textreply = $textreply.$value;
+                $textreply = $textreply.$value.".";
             }
             return $textreply;
     
@@ -54,11 +54,12 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// $textexplode = explode(':',$text);
-			$messagereply = textreply($text);
+		//$messagereply = textreply($text);
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $messagereply,
+				'text'=>'test',
+				//'text' => $messagereply,
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
