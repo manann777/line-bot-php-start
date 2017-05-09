@@ -1,12 +1,12 @@
 <?php
-function textreply($text){
+function textreply($text,$replyToken){
 
     
             $textreply ="";
             $ch1 = curl_init();
             curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch1, CURLOPT_URL, 'https://igad.kku.ac.th/vehicleService/web/index.php?r=mobile/humanmsg&humanmsg='.$text);
+            curl_setopt($ch1, CURLOPT_URL, 'https://igad.kku.ac.th/vehicleService/web/index.php?r=mobile/humanmsg&humanmsg='.$text.'&replytoken='.$replyToken);
             $result1 = curl_exec($ch1);
             curl_close($ch1);
             
@@ -54,7 +54,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// $textexplode = explode(':',$text);
-		$messagereply = textreply($text);
+		$messagereply = textreply($text,$replyToken);
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
